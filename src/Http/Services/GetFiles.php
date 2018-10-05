@@ -267,11 +267,7 @@ trait GetFiles
             // if ($folder) {
             //     return '/'.$folder.DIRECTORY_SEPARATOR.$file['basename'];
             // }
-            if ($this->disk == 's3') {
-                return $this->storage->url($file['path']);
-            }
-
-            return $folder.'/'.$file['basename'];
+            return $this->storage->url($file['path']);
         }
 
         $fileType = new FileTypesImages();
@@ -290,11 +286,11 @@ trait GetFiles
             return getimagesize($this->storage->path($file['path']));
         }
 
-        if ($this->disk == 's3') {
+        /*if ($this->disk == 's3') {
             return false;
 
             return $this->getImageDimesionsFromCloud($file);
-        }
+        }*/
 
         return false;
     }
